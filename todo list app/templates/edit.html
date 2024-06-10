@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="my-4">Edit Todo</h1>
+    <form action="/edit/{{ todo[0] }}" method="post">
+        <div class="form-group">
+            <input type="text" name="title" class="form-control" value="{{ todo[1] }}" required>
+        </div>
+        <div class="form-group">
+            <textarea name="description" class="form-control">{{ todo[2] }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Todo</button>
+    </form>
+{% endblock %}

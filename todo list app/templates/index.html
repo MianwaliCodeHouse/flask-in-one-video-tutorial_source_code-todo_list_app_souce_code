@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="my-4">Todo List</h1>
+    <form action="/add" method="post" class="mb-4">
+        <div class="form-group">
+            <input type="text" name="title" class="form-control" placeholder="Title" required>
+        </div>
+        <div class="form-group">
+            <textarea name="description" class="form-control" placeholder="Description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Todo</button>
+    </form>
+    <ul class="list-group">
+        {% for todo in todos %}
+            <li class="list-group-item">
+                <h5>{{ todo[1] }}</h5>
+                <p>{{ todo[2] }}</p>
+                <a href="/edit/{{ todo[0] }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/delete/{{ todo[0] }}" class="btn btn-danger btn-sm">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
